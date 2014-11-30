@@ -13,7 +13,7 @@
         "pkg-push" #f
         "games" #f
         "drdr" #f
-        "drdr2" #f))
+        "slatex" #f))
 
 (define (gen-all-pkgs p sub)
   (if sub
@@ -31,14 +31,17 @@
    #:program "clone-all"
    #:once-any
    [("--setup-at-end") "Run `raco setup' once at the end" (set! setup-at-end #t)]
-   [("--no-setup") "Don't run `raco setup' at all" (set! setup? #f)])
+   [("--no-setup") "Don't run `raco setup' at all" (set! setup? #f)]
+  #:args 
+  ([dir (current-directory)])
 
-  (for ([(p sub) all-pkgs])
-    (define ps (gen-all-pkgs p sub))
+  (for ([(p* sub) all-pkgs])
+    (define ps (gen-all-pkgs p* sub))
+    (define p (build-path dir p*))
     (unless (or (directory-exists? p)
                 (ormap pkg-directory ps))
       (set! run? #t)
       (apply pkg-install-command #:no-setup (if setup? setup-at-end #t)  #:clone p ps)))
   (when (and run? setup? setup-at-end)
-    (setup)))
+    (setup))))
   
