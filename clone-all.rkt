@@ -19,8 +19,7 @@
         "preprocessor" #f
         "swindle" #f
         "picturing-programs" #f
-        "slatex" #f
-        "frtime" #f))
+        "slatex" #f))
 
 (define (gen-all-pkgs p sub)
   (if sub
