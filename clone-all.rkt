@@ -13,6 +13,9 @@
         "pkg-push" #f
         "games" #f
         "drdr" #f
+        "make" #f
+        "eopl" #f
+        "preprocessor" #f
         "slatex" #f))
 
 (define (gen-all-pkgs p sub)
