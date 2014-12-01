@@ -15,10 +15,12 @@
         "drdr" #f
         "make" #f
         "eopl" #f
+        "frtime" #f
         "preprocessor" #f
         "swindle" #f
         "picturing-programs" #f
-        "slatex" #f))
+        "slatex" #f
+        "frtime" #f))
 
 (define (gen-all-pkgs p sub)
   (if sub
