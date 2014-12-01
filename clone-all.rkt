@@ -16,6 +16,8 @@
         "make" #f
         "eopl" #f
         "preprocessor" #f
+        "swindle" #f
+        "picturing-programs" #f
         "slatex" #f))
 
 (define (gen-all-pkgs p sub)
